@@ -1,4 +1,10 @@
 :root {
+  --medium-gray: #EDECEB;
+  --dark-gray: #38383B;
+  --black: #000000;
+  --white: #FFFFFF;
+  --light-gray: #DFE0E1;
+
   --border-radius: 4px;
   --color-text: #333;
   --color-primary: #7026b9;
@@ -34,6 +40,7 @@ html {
   overflow-y: scroll;
 }
 body {
+  background-color: var(--medium-gray);
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   color: var(--color-text);
