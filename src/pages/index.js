@@ -4,6 +4,7 @@ import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Banner from '../components/banner'
 import * as styles from "../components/index.module.css"
 
 const links = [
@@ -70,8 +71,9 @@ const moreLinks = [
 const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
 
 const IndexPage = () => (
+  <>
+  <Banner />
   <Layout>
-    {/* <Banner /> */}
     {/* <Album /> */}
     {/* <About /> */}
     {/* <LatestSharedPosts /> */}
@@ -121,6 +123,7 @@ const IndexPage = () => (
       </React.Fragment>
     ))}
   </Layout>
+  </>
 )
 
 /**
