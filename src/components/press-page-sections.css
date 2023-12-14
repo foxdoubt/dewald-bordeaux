@@ -1,19 +1,34 @@
-
 .banner {
-    background-image: url("../images/chris-dan-11-dans-fav.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 75vh;
+  background-image: url("../images/chris-dan-11-dans-fav.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 75vh;
 }
 
-    /* reorganize variables */
+/* reorganize variables */
 .album-container {
-    display: flex;
-  }
-
-.album-description-container, .album-image-container {
-    width: 50%;
+  display: flex;
 }
 
-  
+.album-description-container,
+.album-image-container {
+  width: 50%;
+}
+
+.album-description-container {
+  padding: 0 var(--space-2) 0 var(--space-2);
+  /* display: flex; */
+}
+
+.soundcloud-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-container {
+  display: flex;
+}
+.soundcloud-button {
+  /* flex-grow: 1; */
+}

@@ -1,12 +1,12 @@
-import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import * as React from "react";
+import { Link } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import { Banner, Album } from '../components/press-page-sections'
+import Layout from "../components/layout";
+import Seo from "../components/seo";
+import { Banner, Album } from "../components/press-page-sections";
 
-import * as styles from "../components/index.module.css"
+import * as styles from "../components/index.module.css";
 
 const links = [
   {
@@ -33,7 +33,7 @@ const links = [
     description:
       "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
   },
-]
+];
 
 const samplePageLinks = [
   {
@@ -46,7 +46,7 @@ const samplePageLinks = [
   { text: "TypeScript", url: "using-typescript" },
   { text: "Server Side Rendering", url: "using-ssr" },
   { text: "Deferred Static Generation", url: "using-dsg" },
-]
+];
 
 const moreLinks = [
   { text: "Join us on Discord", url: "https://gatsby.dev/discord" },
@@ -67,29 +67,22 @@ const moreLinks = [
     url: "https://www.gatsbyjs.com/contributing/",
   },
   { text: "Issues", url: "https://github.com/gatsbyjs/gatsby/issues" },
-]
+];
 
-const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
+const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`;
 
 const IndexPage = () => (
   <>
-  <Banner />
-  <Layout>
-    <Album /> 
-    {/* <About /> */}
-    {/* <LatestSharedPosts /> */}
-    {/* <ContactForm /> */}
-    
-        
-
-  
-    
-    
-  </Layout>
+    <Banner />
+    <Layout>
+      <Album />
+      {/* <About /> */}
+      {/* <LatestSharedPosts /> */}
+      {/* <ContactForm /> */}
+    </Layout>
   </>
-)
+);
 
+export const Head = () => <Seo title="Home" />;
 
-export const Head = () => <Seo title="Home" />
-
-export default IndexPage
+export default IndexPage;
