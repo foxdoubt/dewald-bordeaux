@@ -1,0 +1,19 @@
+
+.banner {
+    background-image: url("../images/chris-dan-11-dans-fav.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 75vh;
+}
+
+    /* reorganize variables */
+.album-container {
+    display: flex;
+  }
+
+.album-description-container, .album-image-container {
+    width: 50%;
+}
+
+  
