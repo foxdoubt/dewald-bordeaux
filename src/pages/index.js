@@ -9,6 +9,7 @@ import {
   Album,
   Divider,
   About,
+  LatestSharedPosts,
 } from "../components/press-page-sections";
 
 import * as styles from "../components/index.module.css";
@@ -88,7 +89,8 @@ const IndexPage = () => (
         <About />
       </div>
       <Divider />
-      {/* <LatestSharedPosts /> */}
+      <LatestSharedPosts />
+      <Divider />
       {/* <ContactForm /> */}
     </Layout>
   </>

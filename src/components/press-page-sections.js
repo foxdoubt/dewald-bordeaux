@@ -54,7 +54,7 @@ export const Album = () => {
 
 export const About = () => (
   <div>
-    <h3 className="about-heading">About</h3>
+    <h3 className="text-align-center">About</h3>
     <div>
       <p className="about-text">
         Formed in 2019, DeWald/Bordeaux is a collaboration between producer,
@@ -84,6 +84,15 @@ export const About = () => (
         Bordeaux collaborates with emerging artists in Brooklyn, NY, and DeWald
         explores his second love of painting.
       </p>
+    </div>
+  </div>
+);
+
+export const LatestSharedPosts = () => (
+  <div className="text-align-center">
+    <h3>Latest Shared Posts</h3>
+    <div className="instagram-handles">
+      <span>@chris_bordeaux2</span> and <span>@foxdoubt_</span>
     </div>
   </div>
 );
