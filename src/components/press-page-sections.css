@@ -1,3 +1,16 @@
+.page-section {
+  margin: 0 auto;
+  max-width: var(--size-content);
+  padding: var(--size-gutter);
+}
+
+p.about-text {
+  text-align: justify;
+}
+.about-heading {
+  text-align: center;
+}
+
 .banner {
   background-image: url("../images/chris-dan-11-dans-fav.jpeg");
   background-repeat: no-repeat;
@@ -29,6 +42,14 @@
 .flex-container {
   display: flex;
 }
+.flex-main-center {
+  justify-content: center;
+}
 .soundcloud-button {
   /* flex-grow: 1; */
+}
+
+.divider {
+  min-height: 5px;
+  background-color: var(--black);
 }

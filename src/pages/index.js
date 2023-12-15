@@ -4,7 +4,12 @@ import { StaticImage } from "gatsby-plugin-image";
 
 import Layout from "../components/layout";
 import Seo from "../components/seo";
-import { Banner, Album } from "../components/press-page-sections";
+import {
+  Banner,
+  Album,
+  Divider,
+  About,
+} from "../components/press-page-sections";
 
 import * as styles from "../components/index.module.css";
 
@@ -75,8 +80,14 @@ const IndexPage = () => (
   <>
     <Banner />
     <Layout>
-      <Album />
-      {/* <About /> */}
+      <div className="page-section">
+        <Album />
+      </div>
+      <Divider />
+      <div className="page-section flex-container flex-main-center">
+        <About />
+      </div>
+      <Divider />
       {/* <LatestSharedPosts /> */}
       {/* <ContactForm /> */}
     </Layout>
