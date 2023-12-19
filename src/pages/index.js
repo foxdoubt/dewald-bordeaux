@@ -12,8 +12,6 @@ import {
   LatestSharedPosts,
 } from "../components/press-page-sections";
 
-import * as styles from "../components/index.module.css";
-
 const links = [
   {
     text: "Tutorial",

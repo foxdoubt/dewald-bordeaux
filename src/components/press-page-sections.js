@@ -1,6 +1,8 @@
 import * as React from "react";
 import "./press-page-sections.css";
 import AlbumArtwork from "../images/dewald-bordeaux-self-titled-album-cover.jpg";
+import "@fontsource/poppins";
+
 export const Banner = () => <div className="banner"></div>;
 
 export const Divider = () => <div className="divider"></div>;
