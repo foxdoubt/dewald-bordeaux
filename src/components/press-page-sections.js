@@ -1,25 +1,31 @@
 import * as React from "react";
 import "./press-page-sections.css";
 import AlbumArtwork from "../images/dewald-bordeaux-self-titled-album-cover.jpg";
-import "@fontsource/poppins";
 
-export const Banner = () => <div className="banner"></div>;
+import "@fontsource/poppins/300.css";
+import "@fontsource/poppins/400.css";
+import "@fontsource/poppins/500.css";
+
+export const Banner = () => (
+  <div className="banner">
+    <h1 className="banner-header">DeWald/Bordeaux</h1>
+  </div>
+);
 
 export const Divider = () => <div className="divider"></div>;
 
 const SoundCloudButton = () => {
   return (
     <div className="soundcloud-button-container">
-      <div className="soundcloud-button">
+      <button>
         <a
           href="https://soundcloud.com/dewaldbordeaux/sets/dewaldbordeaux/s-1Z5FfCKwhG8?si=c932ac2ee0a54246a2779d0b81a1beeb&amp;utm_campaign=social_sharing&amp;utm_medium=text&amp;utm_source=clipboard"
-          className="sqs-block-button-element--medium sqs-button-element--primary sqs-block-button-element"
           target="_blank"
           data-initialized="true"
         >
           Preview on Soundcloud
         </a>
-      </div>
+      </button>
     </div>
   );
 };
@@ -32,16 +38,18 @@ export const Album = () => {
           <div className="album-description-title">
             <h3>Debut Album</h3>
           </div>
-          <div className="album-description-text">
-            If we pay attention, the loneliest days offer plenty of lighter
-            notes. Within the depths of love, one can still feel profoundly
-            broken. DeWald/Bordeaux’s debut self-titled album takes up the messy
-            contradictions of emotional life with a palette of acoustic
-            instruments, driving and dreamy indie rock and lush cinematic
-            arrangements. Each song is a unique tangle of darkness and light,
-            reminding us that it’s okay to feel connected and isolated in the
-            same breath — that there’s beauty and grace within the tumult of the
-            sensitive soul.
+          <div className="album-description-text page-section-content">
+            <p className="page-section-content">
+              If we pay attention, the loneliest days offer plenty of lighter
+              notes. Within the depths of love, one can still feel profoundly
+              broken. DeWald/Bordeaux’s debut self-titled album takes up the
+              messy contradictions of emotional life with a palette of acoustic
+              instruments, driving and dreamy indie rock and lush cinematic
+              arrangements. Each song is a unique tangle of darkness and light,
+              reminding us that it’s okay to feel connected and isolated in the
+              same breath — that there’s beauty and grace within the tumult of
+              the sensitive soul.
+            </p>
           </div>
         </div>
         <SoundCloudButton />
@@ -58,7 +66,7 @@ export const About = () => (
   <div>
     <h3 className="text-align-center">About</h3>
     <div>
-      <p className="about-text">
+      <p className="about-text page-section-content">
         Formed in 2019, DeWald/Bordeaux is a collaboration between producer,
         songwriter and composer Chris Bordeaux and singer-songwriter Daniel
         DeWald. The two first played music together back in the early aughts on
@@ -69,7 +77,7 @@ export const About = () => (
         DeWald wrote and released music under the name Hayride Casualties and
         co-wrote with Darwin Deez (Lucky Number Music).
       </p>
-      <p className="about-text">
+      <p className="about-text page-section-content">
         With complementary strengths and varied musical ideals, the duo’s
         mission statement is to make beautiful and timeless music worthy of the
         singer-songwriters of decades past who elevated the form. Their
@@ -80,7 +88,7 @@ export const About = () => (
         Parsons, Emmit Rhodes, The Zombies, Paul McCartney and Gordon Lightfoot,
         along with more recent throwbacks like Elliott Smith and Mazzy Star.{" "}
       </p>
-      <p className="about-text">
+      <p className="about-text page-section-content">
         Post release of their debut album, the duo is building a live show
         presentation and considering performance dates and venues, while
         Bordeaux collaborates with emerging artists in Brooklyn, NY, and DeWald

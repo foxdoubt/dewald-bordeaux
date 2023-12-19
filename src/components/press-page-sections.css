@@ -1,11 +1,61 @@
-body {
+h1,
+h3,
+p {
+  font-weight: 300;
   font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1,
+h3,
+h4 {
+  line-height: 1.4em;
+  letter-spacing: 0em;
+  color: var(--black);
+}
+
+h1 {
+  font-size: 3.8rem;
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 2.2rem;
+  font-weight: 500;
+}
+
+button {
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  size: 1.1rem;
+  border: 2px solid var(--black);
+  width: 25%;
+  padding: 1em 0 1em;
+}
+
+button:hover {
+  color: var(--white);
+  background-color: var(--black);
+}
+
+.banner-header {
+  color: var(--white);
 }
 
 .page-section {
   margin: 0 auto;
   max-width: var(--size-content);
   padding: var(--size-gutter);
+}
+
+.page-section-content {
+  line-height: 1.8em;
+  letter-spacing: 0.02em;
+  font-size: 1.1rem;
 }
 
 p.about-text {
