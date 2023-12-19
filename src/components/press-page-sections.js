@@ -62,11 +62,16 @@ export const Album = () => {
             </p>
           </div>
         </div>
+
         <SoundCloudButton />
       </div>
 
       <div className="album-image-container">
-        <img alt="Debut album artwork" src={AlbumArtwork} />
+        <img
+          className="album-image"
+          alt="Debut album artwork"
+          src={AlbumArtwork}
+        />
       </div>
     </div>
   );
