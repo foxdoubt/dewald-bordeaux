@@ -14,20 +14,21 @@ export const Banner = () => (
 
 export const Divider = () => <div className="divider"></div>;
 
+const Button = ({ content, href }) => (
+  <div className="flex-container flex-main-center">
+    <a href={href} target="_blank" data-initialized="true">
+      <div className="button-container">
+        <span className="button">{content}</span>
+      </div>
+    </a>
+  </div>
+);
+
+const soundclickLink =
+  "https://soundcloud.com/dewaldbordeaux/sets/dewaldbordeaux/s-1Z5FfCKwhG8?si=c932ac2ee0a54246a2779d0b81a1beeb&amp;utm_campaign=social_sharing&amp;utm_medium=text&amp;utm_source=clipboard";
+
 const SoundCloudButton = () => {
-  return (
-    <div className="soundcloud-button-container">
-      <button>
-        <a
-          href="https://soundcloud.com/dewaldbordeaux/sets/dewaldbordeaux/s-1Z5FfCKwhG8?si=c932ac2ee0a54246a2779d0b81a1beeb&amp;utm_campaign=social_sharing&amp;utm_medium=text&amp;utm_source=clipboard"
-          target="_blank"
-          data-initialized="true"
-        >
-          Preview on Soundcloud
-        </a>
-      </button>
-    </div>
-  );
+  return <Button content="Preview on Soundcloud" href={soundclickLink} />;
 };
 
 export const Album = () => {
