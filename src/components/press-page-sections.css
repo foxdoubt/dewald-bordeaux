@@ -10,7 +10,10 @@ a {
   color: inherit;
 }
 
-h1,
+h1 {
+  margin: 0;
+}
+
 h3,
 h4 {
   line-height: 1.4em;
@@ -44,9 +47,35 @@ h3 {
   background-color: var(--black);
 }
 
+/* banner start */
+
 .banner-header {
   color: var(--white);
 }
+.banner {
+  background-image: url("../images/chris-dan-11-dans-fav.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+}
+
+.banner-grid {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px;
+  height: 100%;
+}
+
+.banner-site-title {
+  grid-row-start: 2;
+  grid-column-start: 1;
+  grid-row-end: 4;
+  grid-column-end: 5;
+}
+
+/* banner end */
 
 .page-section {
   margin: 0 auto;
@@ -65,14 +94,6 @@ p.about-text {
 }
 .text-align-center {
   text-align: center;
-}
-
-.banner {
-  background-image: url("../images/chris-dan-11-dans-fav.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: 75vh;
 }
 
 /* reorganize variables */

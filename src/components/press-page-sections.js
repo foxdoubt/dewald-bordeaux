@@ -8,7 +8,16 @@ import "@fontsource/poppins/500.css";
 
 export const Banner = () => (
   <div className="banner">
-    <h1 className="banner-header">DeWald/Bordeaux</h1>
+    <div className="page-section">
+      <div className="banner-grid">
+        <div className="banner-site-title banner-header">
+          <h1>DeWald/Bordeaux</h1>
+          <p className="page-section-content">
+            Singer-songwriter duo out of New York.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 );
 
