@@ -29,11 +29,6 @@ h1 {
   font-weight: 400;
 }
 
-h3 {
-  font-size: 2.2rem;
-  font-weight: 500;
-}
-
 /* html end */
 
 /* theme start */
@@ -41,13 +36,20 @@ h3 {
 .page-section {
   margin: 0 auto;
   max-width: var(--size-content);
-  padding: var(--size-gutter);
+  padding: calc(var(--size-gutter) * 1.5) var(--size-gutter);
+}
+
+.page-section-heading {
+  margin-bottom: var(--size-heading-space);
+  font-size: 2.2rem;
+  font-weight: 500;
 }
 
 .page-section-content {
   line-height: 1.8em;
   letter-spacing: 0.02em;
   font-size: 1.1rem;
+  padding-bottom: calc(var(--size-heading-space) / 2);
 }
 
 .text-align-center {

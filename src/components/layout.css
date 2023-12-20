@@ -1,9 +1,9 @@
 :root {
-  --medium-gray: #EDECEB;
-  --dark-gray: #38383B;
+  --medium-gray: #edeceb;
+  --dark-gray: #38383b;
   --black: #000000;
-  --white: #FFFFFF;
-  --light-gray: #DFE0E1;
+  --white: #ffffff;
+  --light-gray: #dfe0e1;
 
   --border-radius: 4px;
   --color-text: #333;
@@ -28,6 +28,7 @@
   --space-5: 32px;
   --space-6: 64px;
   --size-content: 85rem;
+  --size-heading-space: var(--space-4);
   --size-gutter: var(--space-5);
   --size-gap: var(--space-6);
 }
@@ -131,7 +132,6 @@ dd,
 p {
   margin: 0;
   padding: 0;
-  margin-bottom: var(--space-4);
 }
 ul,
 ol {

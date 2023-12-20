@@ -47,7 +47,7 @@ export const Album = () => {
       <div className="album-description-container">
         <div className="album-description">
           <div className="album-description-title">
-            <h3>Debut Album</h3>
+            <h3 className="page-section-heading">Debut Album</h3>
           </div>
           <div className="album-description-text page-section-content">
             <p className="page-section-content">
@@ -80,7 +80,7 @@ export const Album = () => {
 
 export const About = () => (
   <div>
-    <h3 className="text-align-center">About</h3>
+    <h3 className="text-align-center page-section-heading">About</h3>
     <div>
       <p className="about-text page-section-content">
         Formed in 2019, DeWald/Bordeaux is a collaboration between producer,
@@ -123,7 +123,7 @@ export const LatestSharedPosts = () => {
   };
   return (
     <div className="text-align-center">
-      <h3>Latest Shared Posts</h3>
+      <h3 className="page-section-heading">Latest Shared Posts</h3>
       <div className="instagram-icon-container">
         <div className="flex-container flex-main-center">
           <Instagram {...iconDims} />
