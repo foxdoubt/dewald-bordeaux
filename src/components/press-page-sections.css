@@ -1,3 +1,5 @@
+/* html start */
+
 h1,
 h3,
 p {
@@ -10,7 +12,8 @@ a {
   color: inherit;
 }
 
-h1 {
+h1,
+h3 {
   margin: 0;
 }
 
@@ -31,6 +34,26 @@ h3 {
   font-weight: 500;
 }
 
+/* html end */
+
+/* theme start */
+
+.page-section {
+  margin: 0 auto;
+  max-width: var(--size-content);
+  padding: var(--size-gutter);
+}
+
+.page-section-content {
+  line-height: 1.8em;
+  letter-spacing: 0.02em;
+  font-size: 1.1rem;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
 .button {
   display: block;
   font-weight: 500;
@@ -46,6 +69,20 @@ h3 {
   color: var(--white);
   background-color: var(--black);
 }
+
+.flex-container {
+  display: flex;
+}
+.flex-main-center {
+  justify-content: center;
+}
+
+.divider {
+  min-height: 5px;
+  background-color: var(--black);
+}
+
+/* theme end */
 
 /* banner start */
 
@@ -77,26 +114,16 @@ h3 {
 
 /* banner end */
 
-.page-section {
-  margin: 0 auto;
-  max-width: var(--size-content);
-  padding: var(--size-gutter);
-}
-
-.page-section-content {
-  line-height: 1.8em;
-  letter-spacing: 0.02em;
-  font-size: 1.1rem;
-}
+/* about start */
 
 p.about-text {
   text-align: justify;
 }
-.text-align-center {
-  text-align: center;
-}
 
-/* reorganize variables */
+/* about end */
+
+/* album start  */
+
 .album-container {
   display: flex;
 }
@@ -116,7 +143,6 @@ p.about-text {
 
 .album-description-container {
   padding: 0 var(--space-2) 0 var(--space-2);
-  /* display: flex; */
 }
 
 .soundcloud-button-container {
@@ -124,14 +150,13 @@ p.about-text {
   justify-content: center;
 }
 
-.flex-container {
-  display: flex;
-}
-.flex-main-center {
-  justify-content: center;
-}
+/* album end */
 
-.divider {
-  min-height: 5px;
-  background-color: var(--black);
+/* latest shared posts start */
+.instagram-icon-container {
+  margin: 1em;
 }
+.instagram-handles span {
+  font-weight: bold;
+}
+/* latest shared posts end */
