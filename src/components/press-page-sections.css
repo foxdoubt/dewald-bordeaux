@@ -24,11 +24,6 @@ h4 {
   color: var(--black);
 }
 
-h1 {
-  font-size: 3.8rem;
-  font-weight: 400;
-}
-
 /* html end */
 
 /* theme start */
@@ -88,9 +83,16 @@ h1 {
 
 /* banner start */
 
-.banner-header {
+.banner-heading {
+  color: var(--white);
+  font-size: 3.8rem;
+  font-weight: 400;
+}
+
+.banner-section-content {
   color: var(--white);
 }
+
 .banner {
   background-image: url("../images/chris-dan-11-dans-fav.jpeg");
   background-repeat: no-repeat;
@@ -112,6 +114,50 @@ h1 {
   grid-column-start: 1;
   grid-row-end: 4;
   grid-column-end: 5;
+}
+/* media queries */
+
+@media (max-width: 1200px) {
+  .banner-heading {
+    font-size: 2.8rem;
+  }
+
+  .banner-grid {
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+
+  .banner-site-title {
+    grid-row-start: 2;
+    grid-column-start: 1;
+
+    grid-row-end: 4;
+    grid-column-end: 8;
+  }
+}
+
+@media (max-width: 800px) {
+  .banner-heading {
+    font-size: 2rem;
+  }
+
+  .banner-grid {
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+
+  .banner-site-title {
+    display: grid;
+    grid-row-start: 1;
+    grid-column-start: 1;
+
+    grid-row-end: 3;
+    grid-column-end: 6;
+  }
+
+  .banner {
+    height: 40vh;
+  }
 }
 
 /* banner end */
@@ -162,3 +208,9 @@ p.about-text {
   font-weight: bold;
 }
 /* latest shared posts end */
+
+/* media queries start */
+
+/* screens 1200px or smaller */
+
+/* media queries end */

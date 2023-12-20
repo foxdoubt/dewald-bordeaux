@@ -11,9 +11,9 @@ export const Banner = () => (
   <div className="banner">
     <div className="page-section">
       <div className="banner-grid">
-        <div className="banner-site-title banner-header">
-          <h1>DeWald/Bordeaux</h1>
-          <p className="page-section-content">
+        <div className="banner-site-title">
+          <h1 className="banner-heading">DeWald/Bordeaux</h1>
+          <p className="page-section-content banner-section-content">
             Singer-songwriter duo out of New York.
           </p>
         </div>
