@@ -68,6 +68,9 @@ export const Album = () => {
       </div>
 
       <div className="album-image-container">
+        <div className="album-description-title">
+          <h3 className="page-section-heading">Debut Album</h3>
+        </div>
         <img
           className="album-image"
           alt="Debut album artwork"
