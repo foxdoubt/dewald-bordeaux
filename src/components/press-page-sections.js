@@ -1,6 +1,6 @@
 import * as React from "react";
 import "./press-page-sections.css";
-import AlbumArtwork from "../images/dewald-bordeaux-self-titled-album-cover.jpg";
+import AlbumArtworkSrc from "../images/dewald-bordeaux-self-titled-album-cover.jpg";
 import { Instagram } from "@styled-icons/boxicons-logos";
 
 import "@fontsource/poppins/300.css";
@@ -41,10 +41,29 @@ const SoundCloudButton = () => {
   return <Button content="Preview on Soundcloud" href={soundclickLink} />;
 };
 
+const AlbumArtwork = ({ isDesktopView = true }) => {
+  const containerClassName = isDesktopView
+    ? "album-image-container"
+    : "album-image-container-mobile";
+  return (
+    <div className={containerClassName}>
+      <div className="album-description-title">
+        <h3 className="page-section-heading">Debut Album</h3>
+      </div>
+      <img
+        className="album-image"
+        alt="Debut album artwork"
+        src={AlbumArtworkSrc}
+      />
+    </div>
+  );
+};
+
 export const Album = () => {
   return (
     <div className="album-container">
       <div className="album-description-container">
+        <AlbumArtwork isDesktopView={false} />
         <div className="album-description">
           <div className="album-description-title">
             <h3 className="page-section-heading">Debut Album</h3>
@@ -67,16 +86,7 @@ export const Album = () => {
         <SoundCloudButton />
       </div>
 
-      <div className="album-image-container">
-        <div className="album-description-title">
-          <h3 className="page-section-heading">Debut Album</h3>
-        </div>
-        <img
-          className="album-image"
-          alt="Debut album artwork"
-          src={AlbumArtwork}
-        />
-      </div>
+      <AlbumArtwork />
     </div>
   );
 };

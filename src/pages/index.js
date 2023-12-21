@@ -79,7 +79,7 @@ const IndexPage = () => (
   <>
     <Banner />
     <Layout>
-      <div className="page-section">
+      <div className="page-section page-section-album">
         <Album />
       </div>
       <Divider />
