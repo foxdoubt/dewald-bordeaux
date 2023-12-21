@@ -120,7 +120,7 @@ h4 {
 
 /* about start */
 
-p.about-text {
+.about-text {
   text-align: justify;
 }
 
@@ -134,7 +134,7 @@ p.about-text {
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 
-  gap: 0px;
+  gap: 0px 10px;
   height: 100%;
 }
 
@@ -210,6 +210,15 @@ p.about-text {
 }
 
 @media (max-width: 800px) {
+  /* theme start 800 px */
+  .page-section-content {
+    font-size: 1rem;
+  }
+  .about-text {
+    text-align: left;
+  }
+  /* theme end 800 px */
+
   /* banner start 800 px */
   .banner-heading {
     font-size: 2rem;
@@ -231,6 +240,8 @@ p.about-text {
 
   .banner {
     height: 40vh;
+    background-size: 210%;
+    background-position: 67% 50%;
   }
   /* banner end 800px */
 
@@ -256,7 +267,7 @@ p.about-text {
     padding-top: var(--space-3);
   }
   .page-section-album {
-    padding: calc(var(--size-gutter) * 1.5) 20px;
+    padding: calc(var(--size-gutter) * 1) 20px;
   }
 
   .album-image {
