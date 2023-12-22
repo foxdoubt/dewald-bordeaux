@@ -10,6 +10,7 @@ import {
   Divider,
   About,
   LatestSharedPosts,
+  ContactForm,
 } from "../components/press-page-sections";
 
 const links = [
@@ -91,7 +92,7 @@ const IndexPage = () => (
         <LatestSharedPosts />
       </div>
       <Divider />
-      {/* <ContactForm /> */}
+      <ContactForm />
     </Layout>
   </>
 );
