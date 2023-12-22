@@ -155,88 +155,99 @@ export const LatestSharedPosts = () => {
 
 export const ContactForm = () => {
   return (
-    <form
-      method="post"
-      netlify-honeypot="bot-field"
-      data-netlify="true"
-      name="contact"
-    >
-      <input type="hidden" name="bot-field" />{" "}
-      <input type="hidden" name="form-name" value="contact" />
-      <fieldset>
-        <legend>
-          <div>
-            <span>Name</span>
-          </div>
-        </legend>
-        <div className="contact-form-input">
-          <label>
-            <span>First Name</span>
-          </label>
-          <input
-            aria-invalid="false"
-            aria-required="false"
-            autocomplete="given-name"
-            name="fname"
-            type="text"
-            value=""
-          ></input>
+    <>
+      <div className="text-align-center">
+        <h3 className="page-section-heading">Contact DeWald/Bordeaux</h3>
+      </div>
+      <div className="contact-form-container flex-container flex-main-center">
+        <div className="contact-form">
+          <form
+            method="post"
+            netlify-honeypot="bot-field"
+            data-netlify="true"
+            name="contact"
+          >
+            <input type="hidden" name="bot-field" />{" "}
+            <input type="hidden" name="form-name" value="contact" />
+            <fieldset>
+              <legend>
+                <div>
+                  <span>Name</span>
+                </div>
+              </legend>
+              <div className="flex-container">
+                <div className="contact-form-input first-name-input">
+                  <label>
+                    <span>First Name</span>
+                  </label>
+                  <input
+                    aria-invalid="false"
+                    aria-required="false"
+                    autocomplete="given-name"
+                    name="fname"
+                    type="text"
+                    // value=""
+                  ></input>
+                </div>
+                <div className="contact-form-input last-name-input">
+                  <label>
+                    <span>Last Name</span>
+                  </label>
+                  <input
+                    aria-invalid="false"
+                    aria-required="false"
+                    autocomplete="given-name"
+                    name="lname"
+                    type="text"
+                    value=""
+                  ></input>
+                </div>
+              </div>
+            </fieldset>
+            <div className="contact-form-input">
+              <label>
+                <span>Email</span>
+              </label>
+              <input
+                aria-invalid="false"
+                aria-required="true"
+                autocomplete="false"
+                placeholder=""
+                type="email"
+                value=""
+                data-form-type="email"
+              ></input>
+            </div>
+            <div className="contact-form-input">
+              <label>
+                <span>Subject</span>
+              </label>
+              <input
+                aria-invalid="false"
+                aria-required="true"
+                autocomplete="false"
+                placeholder=""
+                type="subject"
+                value=""
+              ></input>
+            </div>
+            <div className="contact-form-input">
+              <label>
+                <span>Message</span>
+              </label>
+              <input
+                aria-invalid="false"
+                aria-required="true"
+                autocomplete="false"
+                placeholder=""
+                type="message"
+                value=""
+              ></input>
+            </div>
+            <Button content="Submit" />
+          </form>
         </div>
-        <div className="contact-form-input">
-          <label>
-            <span>Last Name</span>
-          </label>
-          <input
-            aria-invalid="false"
-            aria-required="false"
-            autocomplete="given-name"
-            name="lname"
-            type="text"
-            value=""
-          ></input>
-        </div>
-      </fieldset>
-      <div className="contact-form-input">
-        <label>
-          <span>Email</span>
-        </label>
-        <input
-          aria-invalid="false"
-          aria-required="true"
-          autocomplete="false"
-          placeholder=""
-          type="email"
-          value=""
-          data-form-type="email"
-        ></input>
       </div>
-      <div className="contact-form-input">
-        <label>
-          <span>Subject</span>
-        </label>
-        <input
-          aria-invalid="false"
-          aria-required="true"
-          autocomplete="false"
-          placeholder=""
-          type="subject"
-          value=""
-        ></input>
-      </div>
-      <div className="contact-form-input">
-        <label>
-          <span>Message</span>
-        </label>
-        <input
-          aria-invalid="false"
-          aria-required="true"
-          autocomplete="false"
-          placeholder=""
-          type="message"
-          value=""
-        ></input>
-      </div>
-      <Button content="Submit" />
-    </form>
+    </>
   );
 };

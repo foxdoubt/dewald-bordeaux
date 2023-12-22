@@ -1,11 +1,14 @@
-/* html start */
-
-h1,
-h3,
-p {
+/* user agent stylesheet overrides start */
+fieldset {
+  border: none;
+}
+body {
   font-weight: 300;
   font-family: "Poppins", sans-serif;
 }
+/* user agent stylesheet overrides end */
+
+/* html start */
 
 a {
   text-decoration: none;
@@ -185,6 +188,34 @@ h4 {
   font-weight: bold;
 }
 /* latest shared posts end */
+
+/* contact form start */
+
+.contact-form {
+  background-color: var(--light-gray);
+  width: var(600px);
+  padding: var(--space-5);
+}
+
+.contact-form-input {
+  margin: var(--space-2);
+}
+.contact-form input {
+  display: block;
+  font-size: 1.1rem;
+  width: 100%;
+  line-height: 2.8rem;
+}
+.contact-form .first-name-input,
+.contact-form .last-name-input {
+  flex: 1;
+}
+
+.input-type-message {
+  height: 150px;
+}
+
+/* contact form end */
 
 /* media queries */
 

@@ -92,7 +92,9 @@ const IndexPage = () => (
         <LatestSharedPosts />
       </div>
       <Divider />
-      <ContactForm />
+      <div className="page-section">
+        <ContactForm />
+      </div>
     </Layout>
   </>
 );

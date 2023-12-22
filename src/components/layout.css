@@ -23,6 +23,7 @@
   --space-4: 24px;
   --space-5: 32px;
   --space-6: 64px;
+  --content-max-width-1: 680px;
   --size-content: 85rem;
   --size-heading-space: var(--space-4);
   --size-gutter: var(--space-5);
@@ -105,5 +106,5 @@ p *:last-child {
 }
 
 p {
-  max-width: 680px;
+  max-width: var(--content-max-width-1);
 }
