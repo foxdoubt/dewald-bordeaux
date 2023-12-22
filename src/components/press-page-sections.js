@@ -1,4 +1,5 @@
-import * as React from "react";
+import fetch from "node-fetch";
+import React, { useState } from "react";
 import "./press-page-sections.css";
 import AlbumArtworkSrc from "../images/dewald-bordeaux-self-titled-album-cover.jpg";
 import { Instagram } from "@styled-icons/boxicons-logos";
@@ -24,14 +25,14 @@ export const Banner = () => (
 
 export const Divider = () => <div className="divider"></div>;
 
-const Button = ({ content, href }) => (
-  <div className="flex-container flex-main-center">
+const Button = ({ content, href, onSubmit, isDisabled }) => (
+  <button className="flex-container flex-main-center" onClick={onSubmit}>
     <a href={href} target="_blank" data-initialized="true">
       <div className="button-container">
         <span className="button">{content}</span>
       </div>
     </a>
-  </div>
+  </button>
 );
 
 const soundclickLink =
@@ -154,6 +155,21 @@ export const LatestSharedPosts = () => {
 };
 
 export const ContactForm = () => {
+  const [formState, setFormState] = useState({
+    first_name: "",
+    last_name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const onFormStateChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
   return (
     <>
       <div className="text-align-center">
@@ -184,9 +200,10 @@ export const ContactForm = () => {
                     aria-invalid="false"
                     aria-required="false"
                     autocomplete="given-name"
-                    name="fname"
+                    name="first_name"
                     type="text"
-                    // value=""
+                    value={formState.first_name}
+                    onChange={onFormStateChange}
                   ></input>
                 </div>
                 <div className="contact-form-input last-name-input">
@@ -197,9 +214,10 @@ export const ContactForm = () => {
                     aria-invalid="false"
                     aria-required="false"
                     autocomplete="given-name"
-                    name="lname"
+                    name="last_name"
                     type="text"
-                    value=""
+                    value={formState.last_name}
+                    onChange={onFormStateChange}
                   ></input>
                 </div>
               </div>
@@ -214,8 +232,10 @@ export const ContactForm = () => {
                 autocomplete="false"
                 placeholder=""
                 type="email"
-                value=""
+                name="email"
+                value={formState.email}
                 data-form-type="email"
+                onChange={onFormStateChange}
               ></input>
             </div>
             <div className="contact-form-input">
@@ -228,7 +248,9 @@ export const ContactForm = () => {
                 autocomplete="false"
                 placeholder=""
                 type="subject"
-                value=""
+                name="subject"
+                value={formState.subject}
+                onChange={onFormStateChange}
               ></input>
             </div>
             <div className="contact-form-input">
@@ -236,15 +258,24 @@ export const ContactForm = () => {
                 <span>Message</span>
               </label>
               <input
+                className="input-type-message"
                 aria-invalid="false"
                 aria-required="true"
                 autocomplete="false"
                 placeholder=""
                 type="message"
-                value=""
+                name="message"
+                value={formState.message}
+                onChange={onFormStateChange}
               ></input>
             </div>
-            <Button content="Submit" />
+            <Button
+              content="Submit"
+              onSubmit={(e) => {
+                e.preventDefault();
+                console.log(formState);
+              }}
+            />
           </form>
         </div>
       </div>
