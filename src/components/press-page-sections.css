@@ -27,6 +27,27 @@ button {
   padding-inline: 0;
   border: none;
 }
+
+input,
+textarea {
+  text-rendering: auto;
+  color: fieldtext;
+  letter-spacing: normal;
+  word-spacing: normal;
+  line-height: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  appearance: auto;
+  -webkit-rtl-ordering: logical;
+  cursor: text;
+  background-color: field;
+  border: none;
+  padding-block: 0;
+  padding-inline: 0;
+}
 /* user agent stylesheet overrides end */
 
 /* html start */
@@ -51,6 +72,10 @@ h4 {
 /* html end */
 
 /* theme start */
+.headspace-sm {
+  margin-top: var(--space-4);
+}
+
 .pointer {
   cursor: pointer;
 }
@@ -229,19 +254,18 @@ h4 {
 .contact-form-input {
   margin: var(--space-2);
 }
-.contact-form input {
+.contact-form input,
+.contact-form textarea {
   display: block;
   font-size: 1.1rem;
   width: 100%;
   line-height: 2.8rem;
+  border: 1px solid #a9a9a9;
+  padding: 0 var(--space-2);
 }
 .contact-form .first-name-input,
 .contact-form .last-name-input {
   flex: 1;
-}
-
-.input-type-message {
-  height: 150px;
 }
 
 /* contact form end */

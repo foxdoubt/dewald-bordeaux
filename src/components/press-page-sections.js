@@ -262,7 +262,7 @@ export const ContactForm = () => {
               <label>
                 <span>Message (required)</span>
               </label>
-              <input
+              <textarea
                 className="input-type-message"
                 aria-invalid="false"
                 aria-required="true"
@@ -272,16 +272,18 @@ export const ContactForm = () => {
                 name="message"
                 value={formState.message}
                 onChange={onFormStateChange}
-              ></input>
+              ></textarea>
             </div>
-            <Button
-              isDisabled={isFormDisabled(formState)}
-              content="Submit"
-              onSubmit={(e) => {
-                e.preventDefault();
-                console.log(formState);
-              }}
-            />
+            <div className="headspace-sm">
+              <Button
+                isDisabled={isFormDisabled(formState)}
+                content="Submit"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  console.log(formState);
+                }}
+              />
+            </div>
           </form>
         </div>
       </div>
