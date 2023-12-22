@@ -6,6 +6,27 @@ body {
   font-weight: 300;
   font-family: "Poppins", sans-serif;
 }
+button {
+  appearance: auto;
+  text-rendering: auto;
+  color: inherit;
+  letter-spacing: normal;
+  word-spacing: normal;
+  line-height: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+  cursor: default;
+  box-sizing: border-box;
+  background-color: inherit;
+  margin: 0;
+  padding-block: 0;
+  padding-inline: 0;
+  border: none;
+}
 /* user agent stylesheet overrides end */
 
 /* html start */
@@ -30,6 +51,9 @@ h4 {
 /* html end */
 
 /* theme start */
+.pointer {
+  cursor: pointer;
+}
 
 .page-section {
   margin: 0 auto;
@@ -57,17 +81,22 @@ h4 {
 .button {
   display: block;
   font-weight: 500;
+  font-size: 1.1rem;
   letter-spacing: 0.05em;
   size: 1.1rem;
   border: 2px solid var(--black);
-  padding: 1em 0 1em;
-  width: 85%;
+  padding: 1em 1em;
   text-align: center;
 }
 
 .button:hover {
   color: var(--white);
   background-color: var(--black);
+}
+
+.button.disabled:hover {
+  color: initial;
+  background-color: initial;
 }
 
 .flex-container {

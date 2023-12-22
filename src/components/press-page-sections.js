@@ -25,15 +25,20 @@ export const Banner = () => (
 
 export const Divider = () => <div className="divider"></div>;
 
-const Button = ({ content, href, onSubmit, isDisabled }) => (
-  <button className="flex-container flex-main-center" onClick={onSubmit}>
-    <a href={href} target="_blank" data-initialized="true">
-      <div className="button-container">
-        <span className="button">{content}</span>
-      </div>
-    </a>
-  </button>
-);
+const Button = ({ content, href, onSubmit, isDisabled }) => {
+  const buttonSpanClasses = isDisabled ? `button disabled` : `button`;
+  return (
+    <div className="flex-container flex-main-center">
+      <button onClick={onSubmit} disabled={isDisabled} className="pointer">
+        <a href={href} target="_blank" data-initialized="true">
+          <div className="button-container">
+            <span className={buttonSpanClasses}>{content}</span>
+          </div>
+        </a>
+      </button>
+    </div>
+  );
+};
 
 const soundclickLink =
   "https://soundcloud.com/dewaldbordeaux/sets/dewaldbordeaux/s-1Z5FfCKwhG8?si=c932ac2ee0a54246a2779d0b81a1beeb&amp;utm_campaign=social_sharing&amp;utm_medium=text&amp;utm_source=clipboard";
@@ -154,6 +159,11 @@ export const LatestSharedPosts = () => {
   );
 };
 
+const isFormDisabled = (state) => {
+  const { email, message } = state;
+  return !email.length || !message.length;
+};
+
 export const ContactForm = () => {
   const [formState, setFormState] = useState({
     first_name: "",
@@ -186,11 +196,6 @@ export const ContactForm = () => {
             <input type="hidden" name="bot-field" />{" "}
             <input type="hidden" name="form-name" value="contact" />
             <fieldset>
-              <legend>
-                <div>
-                  <span>Name</span>
-                </div>
-              </legend>
               <div className="flex-container">
                 <div className="contact-form-input first-name-input">
                   <label>
@@ -224,7 +229,7 @@ export const ContactForm = () => {
             </fieldset>
             <div className="contact-form-input">
               <label>
-                <span>Email</span>
+                <span>Email (required)</span>
               </label>
               <input
                 aria-invalid="false"
@@ -255,7 +260,7 @@ export const ContactForm = () => {
             </div>
             <div className="contact-form-input">
               <label>
-                <span>Message</span>
+                <span>Message (required)</span>
               </label>
               <input
                 className="input-type-message"
@@ -270,6 +275,7 @@ export const ContactForm = () => {
               ></input>
             </div>
             <Button
+              isDisabled={isFormDisabled(formState)}
               content="Submit"
               onSubmit={(e) => {
                 e.preventDefault();
