@@ -164,6 +164,10 @@ const isFormDisabled = (state) => {
   return !email.length || !message.length;
 };
 
+const ContactFormSubmittedView = () => {
+  return <h3>Your message has been submitted</h3>;
+};
+
 export const ContactForm = () => {
   const [formState, setFormState] = useState({
     first_name: "",
@@ -172,6 +176,7 @@ export const ContactForm = () => {
     subject: "",
     message: "",
   });
+  const [submissionState, setSubmissionState] = useState(false);
   const onFormStateChange = (event) => {
     const { name, value } = event.target;
     setFormState({
@@ -186,106 +191,111 @@ export const ContactForm = () => {
         <h3 className="page-section-heading">Contact DeWald/Bordeaux</h3>
       </div>
       <div className="contact-form-container flex-container flex-main-center">
-        <div className="contact-form">
-          <form
-            method="post"
-            netlify-honeypot="bot-field"
-            data-netlify="true"
-            name="contact"
-          >
-            <input type="hidden" name="bot-field" />{" "}
-            <input type="hidden" name="form-name" value="contact" />
-            <fieldset>
-              <div className="flex-container">
-                <div className="contact-form-input first-name-input">
-                  <label>
-                    <span>First Name</span>
-                  </label>
-                  <input
-                    aria-invalid="false"
-                    aria-required="false"
-                    autocomplete="given-name"
-                    name="first_name"
-                    type="text"
-                    value={formState.first_name}
-                    onChange={onFormStateChange}
-                  ></input>
+        {submissionState ? (
+          <ContactFormSubmittedView />
+        ) : (
+          <div className="contact-form">
+            <form
+              method="post"
+              netlify-honeypot="bot-field"
+              data-netlify="true"
+              name="contact"
+            >
+              <input type="hidden" name="bot-field" />{" "}
+              <input type="hidden" name="form-name" value="contact" />
+              <fieldset>
+                <div className="flex-container">
+                  <div className="contact-form-input first-name-input">
+                    <label>
+                      <span>First Name</span>
+                    </label>
+                    <input
+                      aria-invalid="false"
+                      aria-required="false"
+                      autocomplete="given-name"
+                      name="first_name"
+                      type="text"
+                      value={formState.first_name}
+                      onChange={onFormStateChange}
+                    ></input>
+                  </div>
+                  <div className="contact-form-input last-name-input">
+                    <label>
+                      <span>Last Name</span>
+                    </label>
+                    <input
+                      aria-invalid="false"
+                      aria-required="false"
+                      autocomplete="given-name"
+                      name="last_name"
+                      type="text"
+                      value={formState.last_name}
+                      onChange={onFormStateChange}
+                    ></input>
+                  </div>
                 </div>
-                <div className="contact-form-input last-name-input">
-                  <label>
-                    <span>Last Name</span>
-                  </label>
-                  <input
-                    aria-invalid="false"
-                    aria-required="false"
-                    autocomplete="given-name"
-                    name="last_name"
-                    type="text"
-                    value={formState.last_name}
-                    onChange={onFormStateChange}
-                  ></input>
-                </div>
+              </fieldset>
+              <div className="contact-form-input">
+                <label>
+                  <span>Email (required)</span>
+                </label>
+                <input
+                  aria-invalid="false"
+                  aria-required="true"
+                  autocomplete="false"
+                  placeholder=""
+                  type="email"
+                  name="email"
+                  value={formState.email}
+                  data-form-type="email"
+                  onChange={onFormStateChange}
+                ></input>
               </div>
-            </fieldset>
-            <div className="contact-form-input">
-              <label>
-                <span>Email (required)</span>
-              </label>
-              <input
-                aria-invalid="false"
-                aria-required="true"
-                autocomplete="false"
-                placeholder=""
-                type="email"
-                name="email"
-                value={formState.email}
-                data-form-type="email"
-                onChange={onFormStateChange}
-              ></input>
-            </div>
-            <div className="contact-form-input">
-              <label>
-                <span>Subject</span>
-              </label>
-              <input
-                aria-invalid="false"
-                aria-required="true"
-                autocomplete="false"
-                placeholder=""
-                type="subject"
-                name="subject"
-                value={formState.subject}
-                onChange={onFormStateChange}
-              ></input>
-            </div>
-            <div className="contact-form-input">
-              <label>
-                <span>Message (required)</span>
-              </label>
-              <textarea
-                className="input-type-message"
-                aria-invalid="false"
-                aria-required="true"
-                autocomplete="false"
-                placeholder=""
-                type="message"
-                name="message"
-                value={formState.message}
-                onChange={onFormStateChange}
-              ></textarea>
-            </div>
-            <div className="headspace-sm">
-              <Button
-                isDisabled={isFormDisabled(formState)}
-                content="Submit"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  console.log(formState);
-                }}
-              />
-            </div>
-          </form>
-        </div>
+              <div className="contact-form-input">
+                <label>
+                  <span>Subject</span>
+                </label>
+                <input
+                  aria-invalid="false"
+                  aria-required="true"
+                  autocomplete="false"
+                  placeholder=""
+                  type="subject"
+                  name="subject"
+                  value={formState.subject}
+                  onChange={onFormStateChange}
+                ></input>
+              </div>
+              <div className="contact-form-input">
+                <label>
+                  <span>Message (required)</span>
+                </label>
+                <textarea
+                  className="input-type-message"
+                  aria-invalid="false"
+                  aria-required="true"
+                  autocomplete="false"
+                  placeholder=""
+                  type="message"
+                  name="message"
+                  value={formState.message}
+                  onChange={onFormStateChange}
+                ></textarea>
+              </div>
+              <div className="headspace-sm">
+                <Button
+                  isDisabled={isFormDisabled(formState)}
+                  content="Submit"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    console.log(new URLSearchParams(formState).toString());
+                    setSubmissionState(true);
+                  }}
+                />
+              </div>
+            </form>
+          </div>
+        )}
       </div>
     </>
   );
