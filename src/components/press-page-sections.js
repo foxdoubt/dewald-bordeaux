@@ -25,7 +25,7 @@ export const Banner = () => (
 
 export const Divider = () => <div className="divider"></div>;
 
-const Button = ({ content, href, onSubmit, isDisabled }) => {
+const Button = ({ content, href, onSubmit, isDisabled = false }) => {
   const buttonSpanClasses = isDisabled ? `button disabled` : `button`;
   return (
     <div className="flex-container flex-main-center">
@@ -164,19 +164,43 @@ const isFormDisabled = (state) => {
   return !email.length || !message.length;
 };
 
-const ContactFormSubmittedView = () => {
-  return <h3>Your message has been submitted</h3>;
+const ContactFormSubmittedView = ({ buttonOnSubmit, errorMsg }) => {
+  if (errorMsg) {
+    return (
+      <>
+        <h3 className="text-align-center error-msg">
+          There was a problem submitting your message:
+        </h3>
+        <p className="text-align-center error-msg">{errorMsg}</p>
+      </>
+    );
+  }
+  return (
+    <>
+      <h3 className="text-align-center">Your message has been submitted</h3>
+      <div className="headspace-sm">
+        <Button content="Submit another message" onSubmit={buttonOnSubmit} />
+      </div>
+    </>
+  );
 };
 
 export const ContactForm = () => {
-  const [formState, setFormState] = useState({
+  const defaultFormState = {
     first_name: "",
     last_name: "",
     email: "",
     subject: "",
     message: "",
-  });
-  const [submissionState, setSubmissionState] = useState(false);
+  };
+  const defaultSubmissionState = {
+    hasBeenSubmitted: false,
+    errorMsg: undefined,
+  };
+  const [formState, setFormState] = useState(defaultFormState);
+  const [submissionState, setSubmissionState] = useState(
+    defaultSubmissionState
+  );
   const onFormStateChange = (event) => {
     const { name, value } = event.target;
     setFormState({
@@ -185,16 +209,52 @@ export const ContactForm = () => {
     });
   };
 
+  const contactFormOnSubmit = (e) => {
+    e.preventDefault();
+    const postBody = new URLSearchParams({
+      "form-name": "contact",
+      ...formState,
+    }).toString();
+
+    fetch("/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: postBody,
+    })
+      .then(() => {
+        setSubmissionState({
+          errorMsg: undefined,
+          hasBeenSubmitted: true,
+        });
+      })
+      .catch((error) => {
+        setSubmissionState({
+          hasBeenSubmitted: true,
+          errorMsg: error,
+        });
+      });
+  };
+
+  const successMsgViewOnSubmit = () => {
+    setFormState(defaultFormState);
+    setSubmissionState(defaultSubmissionState);
+  };
+
   return (
     <>
       <div className="text-align-center">
         <h3 className="page-section-heading">Contact DeWald/Bordeaux</h3>
       </div>
       <div className="contact-form-container flex-container flex-main-center">
-        {submissionState ? (
-          <ContactFormSubmittedView />
-        ) : (
-          <div className="contact-form">
+        <div className="contact-form">
+          {submissionState.hasBeenSubmitted ? (
+            <ContactFormSubmittedView
+              buttonOnSubmit={successMsgViewOnSubmit}
+              errorMsg={submissionState.errorMsg}
+            />
+          ) : (
             <form
               method="post"
               netlify-honeypot="bot-field"
@@ -286,16 +346,12 @@ export const ContactForm = () => {
                 <Button
                   isDisabled={isFormDisabled(formState)}
                   content="Submit"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    console.log(new URLSearchParams(formState).toString());
-                    setSubmissionState(true);
-                  }}
+                  onSubmit={contactFormOnSubmit}
                 />
               </div>
             </form>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </>
   );
