@@ -15,6 +15,13 @@ module.exports = {
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [
+    {
+      resolve: "gatsby-source-sanity",
+      options: {
+        projectId: "aynbd1l4",
+        dataset: "production",
+      },
+    },
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
