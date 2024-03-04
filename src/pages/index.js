@@ -1,4 +1,5 @@
 import * as React from "react";
+import { graphql } from "gatsby";
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 
@@ -11,6 +12,8 @@ import {
   About,
   LatestSharedPosts,
   ContactForm,
+  ALBUM_SECTION_SANITY_ID,
+  ABOUT_SECTION_SANITY_ID,
 } from "../components/press-page-sections";
 
 const links = [
@@ -76,29 +79,50 @@ const moreLinks = [
 
 const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`;
 
-const IndexPage = () => (
-  <>
-    <Banner />
-    <Layout>
-      <div className="page-section page-section-album">
-        <Album />
-      </div>
-      <Divider />
-      <div className="page-section flex-container flex-main-center">
-        <About />
-      </div>
-      <Divider />
-      <div className="page-section">
-        <LatestSharedPosts />
-      </div>
-      <Divider />
-      <div className="page-section">
-        <ContactForm />
-      </div>
-    </Layout>
-  </>
-);
+const IndexPage = ({ data }) => {
+  const [aboutSectionProps] = data.allSanitySection.nodes.filter(
+    (node) => node._id === ABOUT_SECTION_SANITY_ID
+  );
+  const [albumSectionProps] = data.allSanitySection.nodes.filter(
+    (node) => node._id === ALBUM_SECTION_SANITY_ID
+  );
+
+  return (
+    <>
+      <Banner />
+      <Layout>
+        <div className="page-section page-section-album">
+          <Album description={albumSectionProps._rawDescription} />
+        </div>
+        <Divider />
+        <div className="page-section flex-container flex-main-center">
+          <About description={aboutSectionProps._rawDescription} />
+        </div>
+        <Divider />
+        <div className="page-section">
+          <LatestSharedPosts />
+        </div>
+        <Divider />
+        <div className="page-section">
+          <ContactForm />
+        </div>
+      </Layout>
+    </>
+  );
+};
 
 export const Head = () => <Seo title="Home" />;
 
 export default IndexPage;
+
+export const query = graphql`
+  query AlbumContentQuery {
+    allSanitySection {
+      nodes {
+        name
+        _id
+        _rawDescription
+      }
+    }
+  }
+`;
